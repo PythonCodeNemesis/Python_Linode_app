@@ -37,5 +37,22 @@ def store_data():
         s3.upload_file(data['document'], 'bucket_name', 'document.pdf')
     return jsonify({'message': 'Data stored successfully!'})
 
+@app.route('/get_data', methods=['GET'])
+def get_data():
+    cursor = conn.cursor()
+    # Retrieve data from Linode's managed database
+    sql = "SELECT * FROM data"
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    data = []
+    for row in result:
+        data.append({
+            'id': row[0],
+            'name': row[1],
+            'email': row[2],
+            'message': row[3]
+        })
+    return jsonify({'data': data})
+
 if __name__ == '__main__':
     app.run()
