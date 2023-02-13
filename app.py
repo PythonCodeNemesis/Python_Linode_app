@@ -7,9 +7,9 @@ app = Flask(__name__)
 
 # Connect to Linode's managed database
 conn = pymysql.connect(
-    host='http://lin-16251-9474-mysql-primary-private.servers.linodedb.net/',
+    host='http://lin-16251-9474-mysql-primary.servers.linodedb.net/',
     user='linroot',
-    password=os.environ.get('PASSWORD'),
+    password='eJ0q5sopHd+XTAG7',
     db='products'
 )
 
@@ -21,7 +21,7 @@ s3 = boto3.client('s3',
 
 @app.route('/')
 def index():
-    return 'Welcome to the Linode Flask App Service!'
+    return 'Welcome to the Linode Flask App!'
 
 @app.route('/store_data', methods=['POST'])
 def store_data():
