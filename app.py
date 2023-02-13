@@ -10,7 +10,8 @@ conn = pymysql.connect(
     host='http://lin-16251-9474-mysql-primary.servers.linodedb.net/',
     user='linroot',
     password='eJ0q5sopHd+XTAG7',
-    db='products'
+    db='products',
+    port=3306
 )
 
 # Connect to Linode's object storage
