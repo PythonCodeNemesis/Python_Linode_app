@@ -21,7 +21,7 @@ s3 = boto3.client('s3',
 
 @app.route('/')
 def index():
-    return 'Welcome to the Linode Flask App!'
+    return 'Welcome to the Linode Flask App Service!'
 
 @app.route('/store_data', methods=['POST'])
 def store_data():
