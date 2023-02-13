@@ -1,15 +1,16 @@
 from flask import Flask, request, jsonify
 import pymysql
 import boto3
+import os
 
 app = Flask(__name__)
 
 # Connect to Linode's managed database
 conn = pymysql.connect(
-    host='hostname',
-    user='username',
-    password='password',
-    db='database_name'
+    host='http://lin-16251-9474-mysql-primary.servers.linodedb.net/',
+    user='linroot',
+    password=os.environ.get('PASSWORD'),
+    db='products'
 )
 
 # Connect to Linode's object storage
