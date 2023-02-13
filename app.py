@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # Connect to Linode's managed database
 conn = pymysql.connect(
-    host='http://lin-16251-9474-mysql-primary.servers.linodedb.net/',
+    host='http://lin-16251-9474-mysql-primary-private.servers.linodedb.net/',
     user='linroot',
     password=os.environ.get('PASSWORD'),
     db='products'
